@@ -61,4 +61,3 @@ int main() {
     printf("Number of digits = %d\n", count);
 
     return 0;
-}
