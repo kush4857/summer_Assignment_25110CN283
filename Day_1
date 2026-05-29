@@ -27,7 +27,10 @@ int main() {
 
     return 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> be378c336893e65131d9382ac080814e8769065d
 //factorial
 #include <stdio.h>
 
