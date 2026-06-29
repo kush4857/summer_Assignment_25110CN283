@@ -1,0 +1,170 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Book {
+    int id;
+    char title[50];
+};
+
+int main() {
+    struct Book books[100];
+    int n = 0, choice, id;
+    char title[50];
+
+    while (1) {
+        printf("\n1.Add Book\n2.Display Books\n3.Search Book\n4.Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter Book ID: ");
+                scanf("%d", &books[n].id);
+                printf("Enter Book Title: ");
+                scanf(" %[^\n]", books[n].title);
+                n++;
+                break;
+
+            case 2:
+                printf("\nLibrary Books:\n");
+                for (int i = 0; i < n; i++)
+                    printf("%d\t%s\n", books[i].id, books[i].title);
+                break;
+
+            case 3:
+                printf("Enter Book ID to Search: ");
+                scanf("%d", &id);
+                for (int i = 0; i < n; i++) {
+                    if (books[i].id == id) {
+                        printf("Book Found: %s\n", books[i].title);
+                    }
+                }
+                break;
+
+            case 4:
+                return 0;
+        }
+    }
+}
+
+
+#include <stdio.h>
+
+int main() {
+    float balance = 1000, amount;
+    int choice;
+
+    while (1) {
+        printf("\n1.Deposit\n2.Withdraw\n3.Check Balance\n4.Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter amount to deposit: ");
+                scanf("%f", &amount);
+                balance += amount;
+                break;
+
+            case 2:
+                printf("Enter amount to withdraw: ");
+                scanf("%f", &amount);
+                if (amount <= balance)
+                    balance -= amount;
+                else
+                    printf("Insufficient Balance!\n");
+                break;
+
+            case 3:
+                printf("Current Balance: %.2f\n", balance);
+                break;
+
+            case 4:
+                return 0;
+        }
+    }
+}
+
+#include <stdio.h>
+
+int main() {
+    int seats = 50;
+    int choice, tickets;
+
+    while (1) {
+        printf("\n1.Book Ticket\n2.Check Available Seats\n3.Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter number of tickets: ");
+                scanf("%d", &tickets);
+
+                if (tickets <= seats) {
+                    seats -= tickets;
+                    printf("Booking Successful!\n");
+                } else {
+                    printf("Not enough seats available.\n");
+                }
+                break;
+
+            case 2:
+                printf("Available Seats: %d\n", seats);
+                break;
+
+            case 3:
+                return 0;
+        }
+    }
+}
+
+#include <stdio.h>
+#include <string.h>
+
+struct Contact {
+    char name[50];
+    char phone[15];
+};
+
+int main() {
+    struct Contact c[100];
+    int n = 0, choice;
+    char search[50];
+
+    while (1) {
+        printf("\n1.Add Contact\n2.Display Contacts\n3.Search Contact\n4.Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter Name: ");
+                scanf(" %[^\n]", c[n].name);
+                printf("Enter Phone Number: ");
+                scanf("%s", c[n].phone);
+                n++;
+                break;
+
+            case 2:
+                printf("\nContacts List:\n");
+                for (int i = 0; i < n; i++)
+                    printf("%s\t%s\n", c[i].name, c[i].phone);
+                break;
+
+            case 3:
+                printf("Enter Name to Search: ");
+                scanf(" %[^\n]", search);
+
+                for (int i = 0; i < n; i++) {
+                    if (strcmp(c[i].name, search) == 0) {
+                        printf("Found: %s - %s\n", c[i].name, c[i].phone);
+                    }
+                }
+                break;
+
+            case 4:
+                return 0;
+        }
+    }
+}
